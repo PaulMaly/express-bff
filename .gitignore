@@ -1,0 +1,20 @@
+# generated files
+*.log
+*.txt
+
+# dependencies
+node_modules
+bower_components
+web_modules
+
+# IDEs and editors
+.idea
+.classpath
+*.launch
+.settings
+.sessions
+.vcode
+
+#System Files
+.DS_Store
+Thumbs.db

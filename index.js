@@ -13,7 +13,7 @@ module.exports = function (app, options = {}) {
     options.compress !== false && app.use(compress(options.compress || { threshold: 0 }));
     options.sse !== false && sse(app, options.sse);
     options.api !== false && api(app, options.api);
-    options.proxy !== false && proxy(app, options.proxy);
     options.ssr !== false && ssr(app, options.ssr);
     options.static !== false && serve(app, options.static);
+    options.proxy !== false && proxy(app, options.proxy);
 };

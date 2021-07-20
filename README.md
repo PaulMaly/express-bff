@@ -4,13 +4,14 @@
 
 - Automated client-side security.
 - Built-in sessions.
-- File-based API controllers with automatic route-matching.
+- File-based REST API controllers with automatic route-matching.
 - Server-sent event (SSE) support out-of-the-box.
 - Automated proxying of requests to backend server.
 - Easy integration with Server-side rendering (SSR) engines.
 - Static files serving if needed.
 - Memoization of response based on request params. (coming soon)
 - GrapthQL integration. (coming soon)
+- Websockets support. (coming soon)
 
 ## Install
 
@@ -19,6 +20,8 @@ npm i express-bff --save
 ```
 
 ## Usage
+
+### Configuration
 
 ```javascript
 const path = require('path');
@@ -52,5 +55,53 @@ bff(app, {
 });
 
 app.listen(process.env.PORT);
+```
 
+### REST API controller
+
+```javascript
+// ./routes/posts/index.js => /posts
+
+module.exports = {
+    get,
+    post,
+    patch,
+    put,
+    delete: del
+};
+
+async function get(req, res) {
+  // ...
+}
+
+async function post(req, res) {
+  // ...
+}
+
+async function put(req, res) {
+  // ...
+}
+
+async function patch(req, res) {
+  // ...
+}
+
+async function del(req, res) {
+  // ...
+}
+```
+
+Route with dynamic parameters:
+
+```javascript
+// ./routes/posts/:id.js => /posts/:id
+
+module.exports = {
+    get,
+    ...
+};
+
+async function get(req, res) {
+  console.log('ID is ', req.params.id);
+}
 ```

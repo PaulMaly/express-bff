@@ -9,6 +9,7 @@
 - Automated proxying of requests to backend server.
 - Easy integration with Server-side rendering (SSR) engines.
 - Static files serving if needed.
+- Query to SQL (QSQL) support. (coming soon)
 - Memoization of response based on request params. (coming soon)
 - GrapthQL integration. (coming soon)
 - Websockets support. (coming soon)

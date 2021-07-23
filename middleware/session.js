@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const defaults = {
     persist: true,
     name: '_sid',
-    dir: './sessions',
+    dir: '.sessions',
     secret: crypto.randomBytes(16).toString('hex'),
     resave: false,
     rolling: true,

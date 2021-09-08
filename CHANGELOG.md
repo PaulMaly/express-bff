@@ -1,5 +1,8 @@
 # express-bff changelog
 
+# 0.7.1
+* Update dependencies.
+
 # 0.7.0
 * Update dependencies.
 * Change default sessions dir.

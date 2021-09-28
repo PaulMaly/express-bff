@@ -1,5 +1,8 @@
 # express-bff changelog
 
+# 0.7.2
+* Change order of `static` and `ssr` middlewares.
+
 # 0.7.1
 * Update dependencies.
 

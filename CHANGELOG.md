@@ -1,5 +1,8 @@
 # express-bff changelog
 
+# 0.8.1
+* Move `static` middleware second last to support SPA mode.
+
 # 0.8.0
 * Add `middlewares` section to perform middlewares in a middle of BFF flow.
 * Change order of built-in middlewares.

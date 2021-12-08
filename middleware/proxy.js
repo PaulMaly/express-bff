@@ -1,10 +1,13 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const proxy = require('express-http-proxy');
 
 const defaults = {
-    path: '**'
+    path: '',
+    skipToNextHandlerFilter(proxyRes) {
+        return proxyRes.statusCode === 404;
+    },
 };
 
 module.exports = function (app, options = {}) {
-    const { path, ...opts } = { ...defaults, ...options };
-    app.use(createProxyMiddleware(path, opts));
+    const { path, target, ...opts } = { ...defaults, ...options };
+    app.use(path, proxy(target, opts));
 };

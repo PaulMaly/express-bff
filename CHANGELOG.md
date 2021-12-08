@@ -1,5 +1,9 @@
 # express-bff changelog
 
+# 0.9.0
+* Improve proxying functionality.
+* Speed up static files serving.
+
 # 0.8.1
 * Move `static` middleware second last to support SPA mode.
 

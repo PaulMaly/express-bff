@@ -38,6 +38,10 @@ bff(app, {
     },
     session: {
         persist: true,
+        // OR
+        persist({ secret, ttl }) {
+          return new CustomStore();
+        }
     },
     sse: {
         path: '/events',

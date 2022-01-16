@@ -1,5 +1,8 @@
 # express-bff changelog
 
+# 0.9.2
+* Additional configuration of `session-file-store` store.
+
 # 0.9.1
 * Add ability to pass a function which returnes custom session store via `persist` options of sessions.
 

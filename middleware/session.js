@@ -34,7 +34,14 @@ module.exports = function (app, options = {}) {
 	const store = persist
 		? typeof persist === 'function'
 			? persist({ secret, ttl, })
-			: new FileStore({ secret, path, ttl, })
+			: new FileStore({
+				reapSyncFallback: true,
+				reapInterval: ttl,
+				reapAsync: true,
+				secret, 
+				path, 
+				ttl, 
+			})
 		: undefined;
 
 	app.use(

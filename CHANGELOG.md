@@ -1,5 +1,8 @@
 # express-bff changelog
 
+# 0.10.0
+* Use own SSE implementation.
+
 # 0.9.2
 * Additional configuration of `session-file-store` store.
 

@@ -1,5 +1,8 @@
 # express-bff changelog
 
+# 0.10.1
+* Add additional options to SSE middleware.
+
 # 0.10.0
 * Use own SSE implementation.
 

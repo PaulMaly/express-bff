@@ -55,7 +55,17 @@ class SSE extends EventEmitter {
 				res.write(`event: ${event}\n`);
 			}
 
-			data = typeof data === 'object' ? JSON.stringify(data) : data;
+			data = typeof data === 'object' ? JSON.stringify(data, (() => {
+				// tackle possible circular reference errors
+				const seen = new WeakSet();
+				return (key, value) => {
+					if (typeof value === "object" && value !== null) {
+						if (seen.has(value)) return;
+						seen.add(value);
+					}
+					return value;
+				};
+			})()) : data;
 
 			res.write(`data: ${data}\n\n`);
 	

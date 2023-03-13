@@ -21,27 +21,21 @@ const defaults = {
 const FileStore = sessionFileStore(session);
 
 module.exports = function (app, options = {}) {
-	const {
-		persist,
-		dir: path,
-		secret,
-		cookie,
-		...opts
-	} = { ...defaults, ...options };
+	const { persist, dir: path, secret, cookie, ...opts } = { ...defaults, ...options };
 
 	const ttl = (cookie && cookie.maxAge / 1000) || undefined;
 
 	const store = persist
 		? typeof persist === 'function'
-			? persist({ secret, ttl, })
+			? persist({ secret, ttl })
 			: new FileStore({
-				reapSyncFallback: true,
-				reapInterval: ttl,
-				reapAsync: true,
-				secret, 
-				path, 
-				ttl, 
-			})
+					reapSyncFallback: true,
+					reapInterval: ttl,
+					reapAsync: true,
+					secret,
+					path,
+					ttl,
+			  })
 		: undefined;
 
 	app.use(

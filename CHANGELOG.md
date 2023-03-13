@@ -1,5 +1,15 @@
 # express-bff changelog
 
+# 1.1.0
+* Improve SSR support, including support of Express template engines for SSR.
+* Add typings.
+* Update deps.
+* New `serializer` option is added to `sse` middleware.
+
+# 1.0.0
+* Add `req.id` middleware to provide uuid for each request (useful for SSE streams).
+* Code formatting.
+
 # 0.10.1
 * Add additional options to SSE middleware.
 

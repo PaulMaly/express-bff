@@ -45,6 +45,10 @@ bff(app, {
     },
     sse: {
         path: '/events',
+        // option serializer callback for objects
+        serializer(key, val) {
+          return val;
+        }
     },
     api: {
         dir: path.join(__dirname, 'routes'),
@@ -57,6 +61,12 @@ bff(app, {
         single: true,
         dev,
     },
+    ssr: {
+      template: 'index', // provide template name for express render engine
+      handler(req) {
+        return { /* any locals to render in template */ };
+      }
+    }
 });
 
 app.listen(process.env.PORT);

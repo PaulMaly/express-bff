@@ -10,7 +10,7 @@ class SSE extends EventEmitter {
 	init(req, res) {
 		let _id = 0;
 
-		const { headers, statusCode, compress, retry } = this.options;
+		const { headers, statusCode, compress, retry, serializer } = this.options;
 
 		req.socket.setTimeout(0);
 		req.socket.setNoDelay(true);
@@ -55,10 +55,12 @@ class SSE extends EventEmitter {
 				res.write(`event: ${event}\n`);
 			}
 
-			data = typeof data === 'object' ? JSON.stringify(data) : data;
+			if (typeof data === 'object') {
+				data = JSON.stringify(data, serializer);
+			}
 
 			res.write(`data: ${data}\n\n`);
-	
+
 			res.flush();
 		};
 
